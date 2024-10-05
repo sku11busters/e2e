@@ -1,0 +1,17 @@
+version: 1.0.{build}
+image: node:latest
+
+install:
+  - yarn install
+
+build:
+  - yarn run build
+
+test:
+  - yarn run test
+
+deploy:
+  - provider: GitHubPages
+    artifact: /dist
+    username: $GITHUB_USERNAME
+    password: $GITHUB_PASSWORD
